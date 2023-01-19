@@ -9,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.tictactoe.game.enumeration.Player;
+import com.tictactoe.game.enumeration.Position;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameBoardTests {
@@ -23,8 +24,8 @@ public class GameBoardTests {
 
 	@Test
 	public void shouldSaveInputValueOnGameBoard() {
-		gameBoard.setPlayerInPosition(0, 1, Player.X);
-		assertThat(gameBoard.getPlayerInPosition(0, 1)).isEqualTo(Player.X.getValue());
+		gameBoard.setPlayerInPosition(Position.TWO, Player.X);
+		assertThat(gameBoard.getPlayerInPosition(Position.TWO)).isEqualTo(Player.X.getValue());
 	}
 
 	@Test

@@ -9,6 +9,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.tictactoe.game.enumeration.Player;
+import com.tictactoe.game.enumeration.Position;
 import com.tictactoe.game.service.impl.GameBoard;
 import com.tictcatoe.game.exception.InvalidTurnException;
 
@@ -28,17 +29,17 @@ public class GameServiceTests {
 
 	@Test
 	public void playerXShouldAlwaysGoFirst() {
-		assertThat(gameService.playGame(Player.X, 0, 0).getCurrentPlayer()).isEqualTo(Player.X);
+		assertThat(gameService.playGame(Player.X, Position.ONE.getValue()).getCurrentPlayer()).isEqualTo(Player.X);
 	}
 
 	@Test(expected = InvalidTurnException.class)
 	public void shouldThrowInvalidTurnExceptionIfOMovesFirst() {
-		gameService.playGame(Player.O, 0, 1);
+		gameService.playGame(Player.O, Position.TWO.getValue());
 	}
 
 	@Test
 	public void getPositionFromPlayerAndSaveOnGameBoard() {
-		gameService.playGame(Player.X, 0, 2);
-		assertThat(gameBoard.getPlayerInPosition(0, 2)).isEqualTo(Player.X.getValue());
+		gameService.playGame(Player.X, Position.THREE.getValue());
+		assertThat(gameBoard.getPlayerInPosition(Position.THREE)).isEqualTo(Player.X.getValue());
 	}
 }
