@@ -72,7 +72,7 @@ public class GameService {
 		if (isWinnerAvailable()) {
 			resetGameState();
 			return new GameResponse(String.format("Player %s won the game", player), "GAME_OVER");
-		} else if (gameBoard.isBoardFull()) {
+		} else if (isGameDraw()) {
 			resetGameState();
 			return new GameResponse("Game Draw", "GAME_OVER");
 		}
@@ -93,5 +93,9 @@ public class GameService {
 		if (isFirstTurn()) {
 			gameBoard.initializeGameBoard();
 		}
+	}
+
+	private boolean isGameDraw() {
+		return gameBoard.isBoardFull();
 	}
 }
