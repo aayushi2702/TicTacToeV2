@@ -36,4 +36,9 @@ public class GameServiceTests {
 		gameService.playGame(Player.O, 0, 1);
 	}
 
+	@Test
+	public void getPositionFromPlayerAndSaveOnGameBoard() {
+		gameService.playGame(Player.X, 0, 2);
+		assertThat(gameBoard.getPlayerInPosition(0, 2)).isEqualTo(Player.X.getValue());
+	}
 }
