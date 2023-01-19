@@ -12,6 +12,7 @@ import com.tictactoe.game.enumeration.Player;
 import com.tictactoe.game.enumeration.Position;
 import com.tictactoe.game.service.impl.GameBoard;
 import com.tictcatoe.game.exception.InvalidTurnException;
+import com.tictcatoe.game.exception.PositionOccupiedException;
 
 @RunWith(MockitoJUnitRunner.class)
 public class GameServiceTests {
@@ -47,5 +48,11 @@ public class GameServiceTests {
 	public void shouldThrowInvalidTurnExceptionIfSamePlayerPlaysConsecutiveTurns() {
 		gameService.playGame(Player.X, Position.THREE.getValue());
 		gameService.playGame(Player.X, Position.TWO.getValue());
+	}
+
+	@Test(expected = PositionOccupiedException.class)
+	public void shouldThrowPositionOccupiedExceptionIfPlayerPlaysOnAlreadyOccupiedPosition() {
+		gameService.playGame(Player.X, Position.TWO.getValue());
+		gameService.playGame(Player.O, Position.TWO.getValue());
 	}
 }
