@@ -13,6 +13,7 @@ public class GameBoard {
 
 	private char[][] board = new char[3][3];
 	private static final int EMPTY_POSITION_ON_BOARD = 0;
+	public static final int TOTAL_POSITIONS_ON_BOARD = 9;
 
 	public void setPlayerInPosition(Position position, Player player) {
 		board[position.getRow()][position.getColumn()] = player.getValue();
@@ -103,5 +104,9 @@ public class GameBoard {
 
 	public boolean isAnyOfTwoDiagonalOccupiedBySamePlayer() {
 		return isFirstDiagonalOccupiedBySamePlayer() || isSecondDiagonalOccupiedBySamePlayer();
+	}
+
+	public boolean isBoardFull() {
+		return getCountOfPositionsOccupied() == TOTAL_POSITIONS_ON_BOARD;
 	}
 }
