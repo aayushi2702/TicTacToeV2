@@ -85,4 +85,9 @@ public class GameService {
 		previousPlayer = ZERO;
 		gameBoard.initializeGameBoard();
 	}
+
+	public String resetGame() {
+		resetGameState();
+		return "Reset Successful";
+	}
 }
