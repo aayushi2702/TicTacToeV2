@@ -33,3 +33,18 @@ Develop a simple Tic Tac Toe game written in Java and Spring Boot using Test Dri
 - Java 8 or above
 - Spring Boot 2.7.7
 - Maven 3.x
+
+## **How to build the application**
+1. Clone this repository ```https://github.com/aayushi2702/TicTacToeV2.git```
+2. You can build the project and run the tests by running ```mvn clean install```
+
+## **How to run the application**
+- By default, the application will start on port 8080. If you want the application to run on different port 8081, you can pass additional parameter --server.port=8082 while starting the application
+- Once successfully built, you can run the service by using one of below commands:
+
+```
+  java -jar build/libs/TicTacToe.jar
+                    or 
+                    
+  java -jar build/libs/TicTacToe.jar --server.port=8081
+```
